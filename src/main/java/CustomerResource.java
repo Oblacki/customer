@@ -119,10 +119,27 @@ public class CustomerResource {
         ap.setNumOfBeds(0);
         ap.setCustomerId("N/A");
 
+        List<String> guestIds = new ArrayList<>();
+        guestIds.add("N/A");
+        ap.setGuestIds(guestIds);
+
+        ap.setPricePerNight(-1.0);
+
         apartments.add(ap);
 
         return apartments;
 
+    }
+
+    //external call - from superhost
+    @GET
+    @Path("/superhost")
+    public Response getApartmentByCustomer(@QueryParam("superhost") boolean superhost) {
+        System.out.println("customers/superhost/...");
+        List<Customer> customers = Database.getCustomersBySuperhost(superhost);
+        return customers != null
+                ? Response.ok(customers).build()
+                : Response.status(Response.Status.NOT_FOUND).build();
     }
 
     private List<Apartment> getObjects(String json) throws IOException {

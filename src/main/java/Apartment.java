@@ -10,6 +10,7 @@ public class Apartment {
     private String customerId;
     private List<String> guestIds;
     private double pricePerNight;
+    private List<String> facilities;
 
     public String getId() {
         return id;
@@ -47,4 +48,11 @@ public class Apartment {
 
     public double getPricePerNight() { return this.pricePerNight; }
 
+    public List<String> getFacilities() {
+        return facilities;
+    }
+
+    public void setFacilities(List<String> facilities) {
+        this.facilities = facilities;
+    }
 }

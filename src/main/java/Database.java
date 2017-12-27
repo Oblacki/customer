@@ -70,4 +70,17 @@ public class Database {
         return filteredApartments;
     }
 
+
+    public static List<Customer> getCustomersBySuperhost(boolean superhost) {
+        List<Customer> filteredCustomers = new ArrayList<Customer>();
+
+        for (Customer c : customers) {
+            System.out.println(c.getSuperhost() + " " + superhost);
+            if(c.getSuperhost() == superhost){
+                //System.out.println(apartment.toString());
+                filteredCustomers.add(c);
+            }
+        }
+        return filteredCustomers;
+    }
 }

@@ -3,6 +3,7 @@ CustomerResource.class
 CustomerServiceHealthCheck.class
 Database.class
 CustomerResource$1.class
+META-INF\services\javax.ws.rs.core.Application
 CustomerApplication.class
 Customer.class
 RestProperties.class
