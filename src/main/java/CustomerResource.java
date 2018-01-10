@@ -46,6 +46,9 @@ public class CustomerResource {
     @Inject
     private RestProperties restProperties;
 
+    @Inject
+    CustomerResource customerResource;
+
     @GET
     @Metered
     public Response getAllCustomers() {
@@ -66,7 +69,7 @@ public class CustomerResource {
 
         System.out.println("---------------" + restProperties.isApartmentServiceEnabled() + "---------------------");
         if(restProperties.isApartmentServiceEnabled())
-            apartments = getApartments(customerId);
+            apartments = customerResource.getApartments(customerId);
 
         customer.setApartments(apartments);
 
